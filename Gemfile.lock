@@ -68,6 +68,7 @@ PLATFORMS
 DEPENDENCIES
   cuba
   http
+  nokogiri
   scrap_kit
 
 RUBY VERSION
