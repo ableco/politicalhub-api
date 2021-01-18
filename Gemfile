@@ -42,8 +42,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "fuzzy_record", "~> 1.1"
 gem "fuzzy_set", "~> 1.1"
 
-gem "scrap_kit", "~> 0.1.16"
-
 gem "rubocop", "~> 0.92.0"
 gem "rubocop-able", "~> 0.2.2"
 
