@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate: one
+  criminal_record: MyString
+  date: 2021-01-18
+  court: MyString
+  crime: MyString
+  sentence: MyString
+  sentence_type: MyString
+  status: MyString
+  jne_id: 1
+
+two:
+  candidate: two
+  criminal_record: MyString
+  date: 2021-01-18
+  court: MyString
+  crime: MyString
+  sentence: MyString
+  sentence_type: MyString
+  status: MyString
+  jne_id: 1

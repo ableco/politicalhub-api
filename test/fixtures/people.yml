@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identification_number: MyString
+  family_name: MyString
+  maternal_family_name: MyString
+  names: MyString
+  date_of_birth: 2021-01-08
+  country_of_birth: MyString
+  profile_photo: MyString
+
+two:
+  identification_number: MyString
+  family_name: MyString
+  maternal_family_name: MyString
+  names: MyString
+  date_of_birth: 2021-01-08
+  country_of_birth: MyString
+  profile_photo: MyString

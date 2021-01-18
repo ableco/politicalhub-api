@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate: one
+  university: MyString
+  university_degree: MyString
+  finished: false
+  graduated: false
+  bachelor_year: 1
+  degree_year: 1
+  comments: MyText
+  jne_id: 1
+
+two:
+  candidate: two
+  university: MyString
+  university_degree: MyString
+  finished: false
+  graduated: false
+  bachelor_year: 1
+  degree_year: 1
+  comments: MyText
+  jne_id: 1

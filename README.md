@@ -1,13 +1,24 @@
-# Endpoints
+# README
 
-## [`/organizaciones-politicas`](https://politicalhub-api.herokuapp.com/organizaciones-politicas)
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-List each political organization (nationwide parties only) with logo, name and inscription date.
+Things you may want to cover:
 
-## [`/congresistas`](https://politicalhub-api.herokuapp.com/congresistas)
+* Ruby version
 
-List each congressperson elect for 2020-2021 period with name, photo and identifier (used in the endpoint below).
+* System dependencies
 
-## [`/congresistas/:identifier`](https://politicalhub-api.herokuapp.com/congresistas/montoya-guivin-absalon)
+* Configuration
 
-List most of the information listed in Voto Informado for each congressperson.
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

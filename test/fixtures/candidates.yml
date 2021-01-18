@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  electoral_process: one
+  political_organization: one
+  office_to_apply: 1
+  resume_id: 1
+
+two:
+  person: two
+  electoral_process: two
+  political_organization: two
+  office_to_apply: 1
+  resume_id: 1

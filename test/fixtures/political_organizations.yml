@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  slug: MyString
+  logo: MyString
+  enrolled_at: 2021-01-08
+  website: MyString
+  organization_type: MyString
+
+two:
+  name: MyString
+  slug: MyString
+  logo: MyString
+  enrolled_at: 2021-01-08
+  website: MyString
+  organization_type: MyString

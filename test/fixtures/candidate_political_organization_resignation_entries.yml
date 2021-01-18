@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate: one
+  political_organization_id: 1
+  political_organization_name: MyString
+  resignation_year: 1
+  comments: MyText
+  jne_id: 1
+
+two:
+  candidate: two
+  political_organization_id: 1
+  political_organization_name: MyString
+  resignation_year: 1
+  comments: MyText
+  jne_id: 1
