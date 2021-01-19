@@ -37,7 +37,7 @@
     "id": 1874,
     "names": "MARCIAL ALCIBIADES",
     "family_name": "PALOMINO",
-    "maternal_family_name": "GARCIA MILLA",
+    "mothers_maiden_name": "GARCIA MILLA",
     "date_of_birth": "1956-08-28",
     "profile_photo_url": "https://declara.jne.gob.pe/Assets/Fotos-HojaVida/134132.jpg",
     "residence_ubigeo": "140501",
@@ -110,32 +110,18 @@
     ],
     "candidate_previous_elected_office_entries": [
       {
-        "id": 277,
-        "candidate_id": 1874,
-        "political_organization_id": 14,
-        "political_organization_name": "PARTIDO DEMOCRATICO SOMOS PERU",
-        "office_id": 9,
+        "political_organization": "PARTIDO DEMOCRATICO SOMOS PERU",
         "office": "REGIDOR PROVINCIAL",
         "start_year": null,
         "end_year": null,
-        "comments": "",
-        "jne_id": 132173,
-        "created_at": "2021-01-18T22:21:38.739Z",
-        "updated_at": "2021-01-18T22:21:38.748Z"
+        "comments": ""
       },
       {
-        "id": 278,
-        "candidate_id": 1874,
-        "political_organization_id": 332,
-        "political_organization_name": "CONCERTACION PARA EL DESARROLLO REGIONAL - LIMA",
-        "office_id": 12,
+        "political_organization": "CONCERTACION PARA EL DESARROLLO REGIONAL - LIMA",
         "office": "CONSEJERO REGIONAL",
         "start_year": null,
         "end_year": null,
-        "comments": "",
-        "jne_id": 132172,
-        "created_at": "2021-01-18T22:21:38.802Z",
-        "updated_at": "2021-01-18T22:21:38.837Z"
+        "comments": ""
       }
     ],
     "candidate_political_organization_resignation_entries": [
@@ -147,125 +133,70 @@
     "candidate_criminal_conviction_entries": [],
     "candidate_civil_judgement_entries": [
       {
-        "id": 143,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "00908-2009-0-1308-JP-FC-03",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "SIN SENTENCIA",
-        "jne_id": 130592,
-        "created_at": "2021-01-18T22:21:38.937Z",
-        "updated_at": "2021-01-18T22:21:38.950Z"
+        "sentence": "SIN SENTENCIA"
       },
       {
-        "id": 144,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "00910-2009-0-1308-JP-FC-03",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "SIN SENTENCIA",
-        "jne_id": 130593,
-        "created_at": "2021-01-18T22:21:38.992Z",
-        "updated_at": "2021-01-18T22:21:39.003Z"
+        "sentence": "SIN SENTENCIA"
       },
       {
-        "id": 145,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "00909-2009-0-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "SIN SENTENCIA",
-        "jne_id": 130594,
-        "created_at": "2021-01-18T22:21:39.058Z",
-        "updated_at": "2021-01-18T22:21:39.080Z"
+        "sentence": "SIN SENTENCIA"
       },
       {
-        "id": 146,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01061-2008-25-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "FUNDADA LA DEMANDA",
-        "jne_id": 130595,
-        "created_at": "2021-01-18T22:21:39.148Z",
-        "updated_at": "2021-01-18T22:21:39.163Z"
+        "sentence": "FUNDADA LA DEMANDA"
       },
       {
-        "id": 147,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01061-2008-90-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "FUNDADA LA DEMANDA",
-        "jne_id": 130596,
-        "created_at": "2021-01-18T22:21:39.231Z",
-        "updated_at": "2021-01-18T22:21:39.283Z"
+        "sentence": "FUNDADA LA DEMANDA"
       },
       {
-        "id": 148,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01701-2012-0-1308-JR-CI-03",
         "court": "JUZGADO DE TRABAJO - SEDE CENTRAL",
-        "sentence": "SIN SENTENCIA",
-        "jne_id": 130597,
-        "created_at": "2021-01-18T22:21:39.393Z",
-        "updated_at": "2021-01-18T22:21:39.439Z"
+        "sentence": "SIN SENTENCIA"
       },
       {
-        "id": 149,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01061-2008-0-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "FUNDADA LA DEMANDA",
-        "jne_id": 130599,
-        "created_at": "2021-01-18T22:21:39.580Z",
-        "updated_at": "2021-01-18T22:21:39.647Z"
+        "sentence": "FUNDADA LA DEMANDA"
       },
       {
-        "id": 150,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01061-2008-69-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "FUNDADA LA DEMANDA",
-        "jne_id": 130600,
-        "created_at": "2021-01-18T22:21:39.699Z",
-        "updated_at": "2021-01-18T22:21:39.712Z"
+        "sentence": "FUNDADA LA DEMANDA"
       },
       {
-        "id": 151,
-        "candidate_id": 1874,
         "judgement_type": "LABORAL",
         "record_id": "01061-2008-30-1308-JP-FC-02",
         "court": "JUZ. DE PAZ LETRADO LABORAL - SEDE PAZ LETRADO",
-        "sentence": "FUNDADA LA DEMANDA",
-        "jne_id": 130601,
-        "created_at": "2021-01-18T22:21:39.743Z",
-        "updated_at": "2021-01-18T22:21:39.754Z"
+        "sentence": "FUNDADA LA DEMANDA"
       },
       {
-        "id": 152,
-        "candidate_id": 1874,
         "judgement_type": "FAMILIA / ALIMENTARIA",
         "record_id": "00826-2010-29-1308-JP-FC-03",
         "court": "1° JUZ. PAZ LETRADO DE FAMILIA- SEDE PAZ LETRADO",
-        "sentence": "SIN SENTENCIA /CONCILIACION",
-        "jne_id": 130602,
-        "created_at": "2021-01-18T22:21:39.781Z",
-        "updated_at": "2021-01-18T22:21:39.806Z"
+        "sentence": "SIN SENTENCIA /CONCILIACION"
       },
       {
-        "id": 153,
-        "candidate_id": 1874,
         "judgement_type": "FAMILIA / ALIMENTARIA",
         "record_id": "00826-2010-0-1308-JP-FC-03",
         "court": "1° JUZ. PAZ LETRADO DE FAMILIA- SEDE PAZ LETRADO",
-        "sentence": "SIN SENTENCIA / CONCILIACION",
-        "jne_id": 130603,
-        "created_at": "2021-01-18T22:21:39.920Z",
-        "updated_at": "2021-01-18T22:21:39.942Z"
+        "sentence": "SIN SENTENCIA / CONCILIACION"
       }
     ],
     "candidate_income_entries": [
@@ -502,6 +433,68 @@
 ]
 ```
 
+#### Fields
+
+| Field | Description |
+|-------|-------------|
+| `id` | Internal ID for candidate's record. |
+| `residence_ubigeo` | UBIGEO code of the candidate's residence. |
+| `postulation_ubigeo` | UBIGEO code of the department the candidate is running for. |
+| `political_organization_id` | Internal ID for the political organization the candidate is running for. |
+| `office` | The office the candidate is running for (eg: Presidency, Vice-presidency, Congress, etc) |
+| `secondary_office` | Another office the candidate is running for (eg: vice-presidency candidates also can run for Congress). |
+| `candidate_education_entries` | `primary` (Primaria), `secondary` (Secundaria), `technical_studies` (Educación técnica) or `training` (Educación no universitaria). |
+| `candidate_university_education_entries` | University education. |
+| `candidate_graduate_education_entries` | Postgraduate education (Postgrado). |
+| `candidate_work_experience_entries` | Work experience. |
+| `candidate_political_party_office_entries` | Positions inside a political organization. |
+| `candidate_previous_elected_office_entries` | History of elections the candidate won. |
+| `candidate_political_organization_resignation_entries` | History of political organizations the candidate resigned from. |
+| [`candidate_criminal_conviction_entries`](#candidate_criminal_conviction_entries) | History of criminal convictions (Sentencias penales). |
+| [`candidate_civil_judgement_entries`](#candidate_civil_judgement_entries) | History of civil judgments (Sentencias civiles). |
+| [`candidate_income_entries`](#candidate_income_entries) | Detail of candidates income. |
+| [`candidate_property_entries`](#candidate_property_entries) | List of properties (real estate and vehicles). |
+
+##### `candidate_criminal_conviction_entries`
+
+| Field | Description (in Spanish) |
+|-------|--------------------------|
+| `record_id` | (Nº expediente) |
+| `date` | (Fecha de sentencia) |
+| `court` | (Juzgado) |
+| `crime` | (Delito) |
+| `sentence` | (Sentencia) |
+| `sentence_type` | (Modalida de la sentencia) |
+| `status` | (Pena cumplida o no) |
+
+##### `candidate_civil_judgement_entries`
+
+| Field | Description (in Spanish) |
+|-------|--------------------------|
+| `judgement_type` | (Materia de la sentencia) |
+| `record_id` | (Nº expediente) |
+| `court` | (Juzgado) |
+| `sentence` | (Sentencia) |
+
+##### `candidate_income_entries`
+
+###### `income_type`
+
+| Value | Description (in Spanish) |
+|-------|--------------------------|
+| `public_payroll_income` | (Planillas en el sector público) |
+| `private_payroll_income` | (Planillas en el sector privado) |
+| `public_contractor_income` | (Ejercicio individual en el sector público) |
+| `private_contractor_income` | (Ejercicio individual en el sector privado) |
+| `public_other_income` | (Otros ingresos en el sector público) |
+| `private_other_income` | (Otros ingresos en el sector privado) |
+
+##### `candidate_property_entries`
+
+| Field | Description |
+|-------|--------------------------|
+| `property_type` | `real_estate` or `vehicle` |
+
 #### Search params:
 
 | Param | Description | Default value |
@@ -510,6 +503,7 @@
 | `political_organization`| The internal ID for the political organization the candidates belong to. You can get them from `http://politicalhub-api.herokuapp.com/political_organizations`. | `2` |
 | `ubigeo` | The UBIGEO code related to the electoral department the candidates are running for. Check [Ubigeos](#ubigeos). | `140100` |
 | `office` | The ID for the office the candidates are running for. `1` for presidential candidates and `2` for Congress candidates. | `1` |
+| `with_sentences` | Filter candidates with sentences (both criminal and civil) |
 | `properties_value` | Filter candidates that match their total properties value with a certain value. | `250000` |
 | `properties_value_greater_than` | Filter candidates that have total properties value greater than certain value. | `250000` |
 

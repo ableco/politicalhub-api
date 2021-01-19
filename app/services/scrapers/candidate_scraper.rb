@@ -47,7 +47,7 @@ class Scrapers::CandidateScraper
           person = Person.find_or_create_by(identification_number: personal_information[:identification_number])
           person.update(
             family_name: personal_information[:family_name],
-            maternal_family_name: personal_information[:maternal_family_name],
+            mothers_maiden_name: personal_information[:mothers_maiden_name],
             names: personal_information[:names],
             date_of_birth: personal_information[:date_of_birth],
             country_of_birth: personal_information[:country_of_birth],
@@ -242,7 +242,7 @@ class Scrapers::CandidateScraper
       personal_information = {
         identification_number: resume["oDatosPersonales"]["strDocumentoIdentidad"],
         family_name: resume["oDatosPersonales"]["strApellidoPaterno"],
-        maternal_family_name: resume["oDatosPersonales"]["strApellidoMaterno"],
+        mothers_maiden_name: resume["oDatosPersonales"]["strApellidoMaterno"],
         names: resume["oDatosPersonales"]["strNombres"],
         date_of_birth: parse_date(resume["oDatosPersonales"]["strFechaNacimiento"]),
         country_of_birth: resume["oDatosPersonales"]["strPaisNacimiento"],

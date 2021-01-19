@@ -1,5 +1,5 @@
 class CandidateSerializer < ActiveModel::Serializer
-  attributes :id, :names, :family_name, :maternal_family_name, :date_of_birth, :profile_photo_url
+  attributes :id, :names, :family_name, :mothers_maiden_name, :date_of_birth, :profile_photo_url
   attributes :residence_ubigeo, :political_organization_id, :postulation_ubigeo, :office, :secondary_office
 
   # belongs_to :electoral_process
@@ -24,8 +24,8 @@ class CandidateSerializer < ActiveModel::Serializer
     object.person.family_name
   end
 
-  def maternal_family_name
-    object.person.maternal_family_name
+  def mothers_maiden_name
+    object.person.mothers_maiden_name
   end
 
   def date_of_birth

@@ -3,7 +3,7 @@
 one:
   identification_number: MyString
   family_name: MyString
-  maternal_family_name: MyString
+  mothers_maiden_name: MyString
   names: MyString
   date_of_birth: 2021-01-08
   country_of_birth: MyString
@@ -12,7 +12,7 @@ one:
 two:
   identification_number: MyString
   family_name: MyString
-  maternal_family_name: MyString
+  mothers_maiden_name: MyString
   names: MyString
   date_of_birth: 2021-01-08
   country_of_birth: MyString

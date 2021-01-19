@@ -4,6 +4,7 @@ class CandidatesController < ApplicationController
     political_organization = params[:political_organization]
     ubigeo = params[:ubigeo]
     office = params[:office]
+    with_sentences = params[:with_sentences]
     properties_value = params[:properties_value]
     properties_value_greater_than = params[:properties_value_greater_than]
 
@@ -27,6 +28,9 @@ class CandidatesController < ApplicationController
     candidates = candidates.where(political_organization_id: political_organization) if political_organization.present?
     candidates = candidates.where(postulation_ubigeo: ubigeo) if ubigeo.present?
     candidates = candidates.where(office_id: office).or(candidates.where(secondary_office_id: office)) if office.present?
+    if with_sentences.to_s == "true"
+      candidates = candidates.where(id: CandidateCriminalConvictionEntry.select(:candidate_id)).or(candidates.where(id: CandidateCivilJudgementEntry.select(:candidate_id)))
+    end
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
