@@ -35,6 +35,6 @@ class CandidateSerializer < ActiveModel::Serializer
   def profile_photo_url
     return nil if object.person.profile_photo.blank?
 
-    "https://declara.jne.gob.pe/#{object.person.profile_photo}"
+    File.join("https://declara.jne.gob.pe/", object.person.profile_photo)
   end
 end
