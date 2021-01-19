@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_173621) do
+ActiveRecord::Schema.define(version: 2021_01_19_134450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_173621) do
     t.bigint "candidate_id", null: false
     t.string "property_type"
     t.string "registry_type"
-    t.decimal "value", precision: 10, scale: 2
+    t.decimal "value", precision: 12, scale: 2
     t.string "license_plate_or_public_record"
     t.string "address"
     t.string "description"
