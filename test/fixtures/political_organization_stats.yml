@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  political_organization: one
+  electoral_process: one
+  total_candidates_with_sentences: 1
+  total_sentences: 1
+
+two:
+  political_organization: two
+  electoral_process: two
+  total_candidates_with_sentences: 1
+  total_sentences: 1

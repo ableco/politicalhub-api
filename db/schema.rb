@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_161844) do
+ActiveRecord::Schema.define(version: 2021_01_20_202305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,17 @@ ActiveRecord::Schema.define(version: 2021_01_19_161844) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "political_organization_stats", force: :cascade do |t|
+    t.bigint "political_organization_id", null: false
+    t.bigint "electoral_process_id", null: false
+    t.integer "total_candidates_with_sentences", default: 0
+    t.integer "total_sentences", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["electoral_process_id"], name: "index_political_organization_stats_on_electoral_process_id"
+    t.index ["political_organization_id"], name: "index_political_organization_stats_on_political_organization_id"
+  end
+
   create_table "political_organizations", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -230,4 +241,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_161844) do
   add_foreign_key "candidates", "electoral_processes"
   add_foreign_key "candidates", "people"
   add_foreign_key "candidates", "political_organizations"
+  add_foreign_key "political_organization_stats", "electoral_processes"
+  add_foreign_key "political_organization_stats", "political_organizations"
 end
