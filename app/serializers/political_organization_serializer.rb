@@ -1,5 +1,5 @@
 class PoliticalOrganizationSerializer < ActiveModel::Serializer
   attributes :id, :name, :slug, :logo
 
-  has_many :political_organization_stats
+  has_one :political_organization_stat
 end

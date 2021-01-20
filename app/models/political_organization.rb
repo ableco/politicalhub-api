@@ -1,5 +1,5 @@
 class PoliticalOrganization < ApplicationRecord
-  has_many :political_organization_stats
+  has_one :political_organization_stat, -> { joins(:electoral_process).where(electoral_processes: { jne_id: ElectoralProcess::LAST_ELECTION_ID }) }
 
   before_save :set_slug
 
