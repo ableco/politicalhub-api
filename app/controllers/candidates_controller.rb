@@ -34,7 +34,10 @@ class CandidatesController < ApplicationController
       candidates = candidates.where(id: CandidateCriminalConvictionEntry.select(:candidate_id)).or(candidates.where(id: CandidateCivilJudgementEntry.select(:candidate_id)))
     end
 
-    candidates = candidates.joins(person: :individual_financial_contributions) if has_individual_financial_contributions
+    if has_individual_financial_contributions
+      candidates = candidates.where(people: { id: IndividualFinancialContribution.select(:person_id) })
+    end
+
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
