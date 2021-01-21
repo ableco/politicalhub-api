@@ -27,6 +27,8 @@ class Scrapers::CandidateScraper
             political_organization_id: registration_request[:political_organization_id]
           )
 
+          next if resume.nil?
+
           personal_information = resume[:personal_information]
           primary_education = resume[:primary_education]
           secondary_education = resume[:secondary_education]
@@ -227,7 +229,8 @@ class Scrapers::CandidateScraper
 
       JSON.parse(request.body.to_s).fetch("data").map do |candidate|
         {
-          resume_id: candidate["idHojaVida"]
+          resume_id: candidate["idHojaVida"],
+          state: candidate["strEstadoExp"]
         }
       end
     end
@@ -238,6 +241,8 @@ class Scrapers::CandidateScraper
       request = HTTP.follow.get(url)
 
       resume = JSON.parse(request.body.to_s).fetch("data")
+
+      return nil if resume.nil?
 
       personal_information = {
         identification_number: resume["oDatosPersonales"]["strDocumentoIdentidad"],
