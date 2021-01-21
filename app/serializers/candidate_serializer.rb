@@ -4,6 +4,7 @@ class CandidateSerializer < ActiveModel::Serializer
 
   # belongs_to :electoral_process
   # belongs_to :political_organization
+  has_many :individual_financial_contributions
   has_many :candidate_education_entries
   has_many :candidate_university_education_entries
   has_many :candidate_graduate_education_entries
@@ -15,6 +16,10 @@ class CandidateSerializer < ActiveModel::Serializer
   has_many :candidate_civil_judgement_entries
   has_many :candidate_income_entries
   has_many :candidate_property_entries
+
+  def individual_financial_contributions
+    object.person.individual_financial_contributions
+  end
 
   def names
     object.person.names

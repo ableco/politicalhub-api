@@ -4,12 +4,13 @@ class CandidatesController < ApplicationController
     political_organization = params[:political_organization]
     ubigeo = params[:ubigeo]
     office = params[:office]
-    with_sentences = params[:with_sentences]
+    with_sentences = params[:with_sentences].to_s == "true"
+    has_individual_financial_contributions = params[:has_individual_financial_contributions].to_s == "true"
     properties_value = params[:properties_value]
     properties_value_greater_than = params[:properties_value_greater_than]
 
     candidates = Candidate.includes(
-      :person,
+      {person: :individual_financial_contributions },
       :electoral_process,
       :political_organization,
       :candidate_education_entries,
@@ -28,9 +29,12 @@ class CandidatesController < ApplicationController
     candidates = candidates.where(political_organization_id: political_organization) if political_organization.present?
     candidates = candidates.where(postulation_ubigeo: ubigeo) if ubigeo.present?
     candidates = candidates.where(office_id: office).or(candidates.where(secondary_office_id: office)) if office.present?
-    if with_sentences.to_s == "true"
+
+    if with_sentences
       candidates = candidates.where(id: CandidateCriminalConvictionEntry.select(:candidate_id)).or(candidates.where(id: CandidateCivilJudgementEntry.select(:candidate_id)))
     end
+
+    candidates = candidates.joins(person: :individual_financial_contributions) if has_individual_financial_contributions
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
