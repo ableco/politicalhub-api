@@ -35,7 +35,7 @@ class CandidatesController < ApplicationController
     end
 
     if has_individual_financial_contributions
-      candidates = candidates.where(id: Person.where("total_individual_financial_contributions > 0.0").select(:id))
+      candidates = candidates.where(person_id: Person.where("total_individual_financial_contributions > 0.0").select(:id))
     end
 
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
