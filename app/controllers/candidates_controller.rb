@@ -10,7 +10,7 @@ class CandidatesController < ApplicationController
     properties_value_greater_than = params[:properties_value_greater_than]
 
     candidates = Candidate.includes(
-      {person: :individual_financial_contributions },
+      :person,
       :electoral_process,
       :political_organization,
       :candidate_education_entries,
@@ -35,7 +35,7 @@ class CandidatesController < ApplicationController
     end
 
     if has_individual_financial_contributions
-      candidates = candidates.where(people: { id: IndividualFinancialContribution.select(:person_id) })
+      candidates = candidates.where("people.total_individual_financial_contributions > 0.0")
     end
 
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
