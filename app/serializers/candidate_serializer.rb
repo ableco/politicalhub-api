@@ -1,10 +1,10 @@
 class CandidateSerializer < ActiveModel::Serializer
   attributes :id, :names, :family_name, :mothers_maiden_name, :date_of_birth, :profile_photo_url
   attributes :residence_ubigeo, :political_organization_id, :postulation_ubigeo, :office, :secondary_office
+  attributes :total_individual_financial_contributions
 
   # belongs_to :electoral_process
   # belongs_to :political_organization
-  has_many :individual_financial_contributions
   has_many :candidate_education_entries
   has_many :candidate_university_education_entries
   has_many :candidate_graduate_education_entries
@@ -17,8 +17,8 @@ class CandidateSerializer < ActiveModel::Serializer
   has_many :candidate_income_entries
   has_many :candidate_property_entries
 
-  def individual_financial_contributions
-    object.person.individual_financial_contributions
+  def total_individual_financial_contributions
+    object.person.total_individual_financial_contributions
   end
 
   def names
