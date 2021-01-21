@@ -502,7 +502,7 @@
 | `electoral_process` | The JNE ID for the electoral process the candidates are participating at. | `110` |
 | `political_organization`| The internal ID for the political organization the candidates belong to. You can get them from `http://politicalhub-api.herokuapp.com/political_organizations`. | `2` |
 | `ubigeo` | The UBIGEO code related to the electoral department the candidates are running for. Check [Ubigeos](#ubigeos). | `140100` |
-| `office` | The ID for the office the candidates are running for. `1` for presidential candidates and `2` for Congress candidates. | `1` |
+| `office` | The ID for the office the candidates are running for. `1` for presidential candidates and `4` for Congress candidates. | `1` |
 | `with_sentences` | Filter candidates with sentences (both criminal and civil) |
 | `properties_value` | Filter candidates that match their total properties value with a certain value. | `250000` |
 | `properties_value_greater_than` | Filter candidates that have total properties value greater than certain value. | `250000` |
