@@ -256,6 +256,7 @@ class Scrapers::CandidateScraper
         mothers_maiden_name: resume["oDatosPersonales"]["strApellidoMaterno"],
         names: resume["oDatosPersonales"]["strNombres"],
         date_of_birth: parse_date(resume["oDatosPersonales"]["strFechaNacimiento"]),
+        gender: parse_gender(resume["oDatosPersonales"]["strSexo"]),
         country_of_birth: resume["oDatosPersonales"]["strPaisNacimiento"],
         residence_ubigeo: resume["oDatosPersonales"]["strUbigeoDomicilio"],
         residence_region: resume["oDatosPersonales"]["strDomiDepartamento"],
@@ -493,6 +494,15 @@ class Scrapers::CandidateScraper
         true
       when "2"
         false
+      end
+    end
+
+    def parse_gender(gender)
+      case gender
+      when "1"
+        "m"
+      when "2"
+        "f"
       end
     end
 

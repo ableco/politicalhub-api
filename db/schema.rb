@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_225415) do
+ActiveRecord::Schema.define(version: 2021_01_22_232909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_225415) do
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "total_individual_financial_contributions", precision: 12, scale: 2, default: "0.0"
     t.decimal "total_tax_debts", precision: 12, scale: 2, default: "0.0"
+    t.string "gender"
   end
 
   create_table "political_organization_stats", force: :cascade do |t|
