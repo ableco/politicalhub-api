@@ -6,7 +6,17 @@ class Scrapers::TaxDebtsScraper
       browser.button(id: "btnPorDocumento").click
       browser.text_field(id: "txtNumeroDocumento").set(identification_number)
       browser.button(id: "btnAceptar").click
-      browser.link(css: ".aRucs").click
+
+      sleep 1
+
+      ruc = browser.element(css: ".aRucs")
+
+      if ruc.exists?
+        ruc.to_subtype.click
+      else
+        return nil
+      end
+
       browser.button(css: ".btnInfDeuCoa").click
 
       table = browser.element(css: ".table")
