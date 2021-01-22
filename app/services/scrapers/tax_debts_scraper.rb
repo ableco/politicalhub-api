@@ -14,20 +14,34 @@ class Scrapers::TaxDebtsScraper
       if table.exists?
         table = table.to_subtype
 
-        debts = table.tbody.rows.map do |row|
+        tax_debts = table.tbody.rows.map do |row|
           {
             amount: row.cells[0].text.to_d,
-            period: row.cells[1].text,
+            period: row.cells[1].text
           }
         end
 
-        browser.close
+        person = Person.find_by(identification_number: identification_number)
 
-        debts
+        return tax_debts if person.nil?
+
+        tax_debts.each do |debt|
+          tax_debt = TaxDebt.find_or_create_by(
+            person_id: person.id,
+            period: debt[:period]
+          )
+
+          tax_debt.update(debt)
+        end
+
+        browser.close
+        browser = nil
       end
     rescue StandardError => error
       puts error
+
       browser.close
+      browser = nil
 
       nil
     end
@@ -40,9 +54,10 @@ class Scrapers::TaxDebtsScraper
       options.add_argument "--headless"
       options.add_argument "--window-size=800x600"
       options.add_argument "--hide-scrollbars"
+      options.add_argument "--disable-gpu"
+      options.add_argument "--no-sandbox"
 
       if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
-        options.add_argument "--no-sandbox"
         options.add_argument "--disable-dev-shm-usage"
         options.binary = chrome_bin
       end

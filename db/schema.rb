@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_050717) do
+ActiveRecord::Schema.define(version: 2021_01_22_032017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,6 +214,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_050717) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "total_individual_financial_contributions", precision: 12, scale: 2, default: "0.0"
+    t.decimal "total_tax_debts", precision: 12, scale: 2, default: "0.0"
   end
 
   create_table "political_organization_stats", force: :cascade do |t|
@@ -239,6 +240,15 @@ ActiveRecord::Schema.define(version: 2021_01_21_050717) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tax_debts", force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.string "period"
+    t.decimal "amount", precision: 12, scale: 2, default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_tax_debts_on_person_id"
+  end
+
   add_foreign_key "candidate_civil_judgement_entries", "candidates"
   add_foreign_key "candidate_criminal_conviction_entries", "candidates"
   add_foreign_key "candidate_education_entries", "candidates"
@@ -256,4 +266,5 @@ ActiveRecord::Schema.define(version: 2021_01_21_050717) do
   add_foreign_key "individual_financial_contributions", "people"
   add_foreign_key "political_organization_stats", "electoral_processes"
   add_foreign_key "political_organization_stats", "political_organizations"
+  add_foreign_key "tax_debts", "people"
 end
