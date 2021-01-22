@@ -8,7 +8,12 @@ class Scrapers::TaxDebtsScraper
       browser.button(id: "btnAceptar").click
       browser.link(css: ".aRucs").click
       browser.button(css: ".btnInfDeuCoa").click
-      if table = browser.table(css: ".table")
+
+      table = browser.element(css: ".table")
+
+      if table.exists?
+        table = table.to_subtype
+
         debts = table.tbody.rows.map do |row|
           {
             amount: row.cells[0].text.to_d,
