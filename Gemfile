@@ -51,3 +51,7 @@ gem "nokogiri", "~> 1.11"
 gem "active_model_serializers", "~> 0.10.12"
 
 gem "sidekiq", "~> 6.1"
+
+gem "watir", "~> 6.17"
+
+gem "webdrivers", "~> 4.5"
