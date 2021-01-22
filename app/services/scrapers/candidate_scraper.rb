@@ -231,7 +231,9 @@ class Scrapers::CandidateScraper
 
       JSON.parse(request.body.to_s).fetch("data").map do |candidate|
         {
+          identification_number: candidate["strDocumentoIdentidad"],
           resume_id: candidate["idHojaVida"],
+          office_id: candidate["idCargoEleccion"],
           number: candidate["intPosicion"],
           designated: candidate["strFGDesignado"] == "1",
           state: candidate["strEstadoExp"]
