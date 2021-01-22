@@ -64,6 +64,8 @@ class Scrapers::CandidateScraper
             jne_id: personal_information[:jne_id]
           )
           candidate.update(
+            designated: candidate_from_registration_request[:designated],
+            number: candidate_from_registration_request[:number],
             residence_ubigeo: personal_information[:residence_ubigeo],
             residence_region: personal_information[:residence_region],
             residence_province: personal_information[:residence_province],
@@ -230,6 +232,8 @@ class Scrapers::CandidateScraper
       JSON.parse(request.body.to_s).fetch("data").map do |candidate|
         {
           resume_id: candidate["idHojaVida"],
+          number: candidate["intPosicion"],
+          designated: candidate["strFGDesignado"] == "1",
           state: candidate["strEstadoExp"]
         }
       end

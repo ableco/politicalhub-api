@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_032017) do
+ActiveRecord::Schema.define(version: 2021_01_22_225415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,6 +178,8 @@ ActiveRecord::Schema.define(version: 2021_01_22_032017) do
     t.decimal "total_properties_value", precision: 12, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "designated"
+    t.integer "number"
     t.index ["electoral_process_id"], name: "index_candidates_on_electoral_process_id"
     t.index ["person_id"], name: "index_candidates_on_person_id"
     t.index ["political_organization_id"], name: "index_candidates_on_political_organization_id"
