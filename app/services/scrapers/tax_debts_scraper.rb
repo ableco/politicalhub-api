@@ -50,9 +50,6 @@ class Scrapers::TaxDebtsScraper
     rescue StandardError => error
       puts error
 
-      browser.close
-      browser = nil
-
       nil
     end
 
