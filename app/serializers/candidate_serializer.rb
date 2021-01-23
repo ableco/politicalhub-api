@@ -3,19 +3,20 @@ class CandidateSerializer < ActiveModel::Serializer
   attributes :residence_ubigeo, :political_organization_id, :postulation_ubigeo, :office, :secondary_office
   attributes :total_individual_financial_contributions
 
-  # belongs_to :electoral_process
-  # belongs_to :political_organization
+  belongs_to :person
+  belongs_to :electoral_process
+  belongs_to :political_organization
   has_many :candidate_education_entries
   has_many :candidate_university_education_entries
   has_many :candidate_graduate_education_entries
   has_many :candidate_work_experience_entries
-  # has_many :candidate_political_party_office_entries
-  # has_many :candidate_previous_elected_office_entries
-  # has_many :candidate_political_organization_resignation_entries
-  # has_many :candidate_criminal_conviction_entries
-  # has_many :candidate_civil_judgement_entries
-  # has_many :candidate_income_entries
-  # has_many :candidate_property_entries
+  has_many :candidate_political_party_office_entries
+  has_many :candidate_previous_elected_office_entries
+  has_many :candidate_political_organization_resignation_entries
+  has_many :candidate_criminal_conviction_entries
+  has_many :candidate_civil_judgement_entries
+  has_many :candidate_income_entries
+  has_many :candidate_property_entries
 
   def total_individual_financial_contributions
     object.person.total_individual_financial_contributions

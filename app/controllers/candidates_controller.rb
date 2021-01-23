@@ -17,13 +17,13 @@ class CandidatesController < ApplicationController
       :candidate_university_education_entries,
       :candidate_graduate_education_entries,
       :candidate_work_experience_entries,
-      # :candidate_political_party_office_entries,
-      # :candidate_previous_elected_office_entries,
-      # :candidate_political_organization_resignation_entries,
-      # :candidate_criminal_conviction_entries,
-      # :candidate_civil_judgement_entries,
-      # :candidate_income_entries,
-      # :candidate_property_entries
+      :candidate_political_party_office_entries,
+      :candidate_previous_elected_office_entries,
+      :candidate_political_organization_resignation_entries,
+      :candidate_criminal_conviction_entries,
+      :candidate_civil_judgement_entries,
+      :candidate_income_entries,
+      :candidate_property_entries
     )
     candidates = candidates.where(electoral_process_id: electoral_process.id)
     candidates = candidates.where(political_organization_id: political_organization) if political_organization.present?
@@ -41,6 +41,31 @@ class CandidatesController < ApplicationController
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
-    render json: candidates
+    render json: candidates, include: include_options
+  end
+
+  def show
+    candidate = Candidate.includes(
+      :person,
+      :electoral_process,
+      :political_organization,
+      :candidate_education_entries,
+      :candidate_university_education_entries,
+      :candidate_graduate_education_entries,
+      :candidate_work_experience_entries,
+      :candidate_political_party_office_entries,
+      :candidate_previous_elected_office_entries,
+      :candidate_political_organization_resignation_entries,
+      :candidate_criminal_conviction_entries,
+      :candidate_civil_judgement_entries,
+      :candidate_income_entries,
+      :candidate_property_entries
+    ).find(params[:id])
+
+    render json: candidate, include: include_options
+  end
+
+  def include_options
+    params[:include].blank? ? [] : params[:include].split(",")
   end
 end

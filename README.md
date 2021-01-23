@@ -507,6 +507,27 @@
 | `has_individual_financial_contributions` | Filter candidates that made financial contributions to political organizations | `true` |
 | `properties_value` | Filter candidates that match their total properties value with a certain value. | `250000` |
 | `properties_value_greater_than` | Filter candidates that have total properties value greater than certain value. | `250000` |
+| `include` | Comma-separated list of related resources. | `person,candidate_property_entries` |
+
+#### Include resources for candidates:
+
+* `person`
+* `person.individual_financial_contributions`
+* `person.electoral_history_entries`
+* `person.tax_debts`
+* `electoral_process`
+* `political_organization`
+* `candidate_education_entries`
+* `candidate_university_education_entries`
+* `candidate_graduate_education_entries`
+* `candidate_work_experience_entries`
+* `candidate_political_party_office_entries`
+* `candidate_previous_elected_office_entries`
+* `candidate_political_organization_resignation_entries`
+* `candidate_criminal_conviction_entries`
+* `candidate_civil_judgement_entries`
+* `candidate_income_entries`
+* `candidate_property_entries`
 
 ### Ubigeos
 
