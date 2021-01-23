@@ -1,4 +1,4 @@
-module PoliticalOrganizationStatsCounter
+module PoliticalOrganizationTotalSentencesCounter
   extend ActiveSupport::Concern
 
   included do

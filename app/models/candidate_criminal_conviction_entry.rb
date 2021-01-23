@@ -1,5 +1,5 @@
 class CandidateCriminalConvictionEntry < ApplicationRecord
-  include PoliticalOrganizationStatsCounter
+  include PoliticalOrganizationTotalSentencesCounter
 
   belongs_to :candidate
 end

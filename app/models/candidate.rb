@@ -1,4 +1,6 @@
 class Candidate < ApplicationRecord
+  include PoliticalOrganizationTotalCandidatesCounter
+
   ELECTION_OFFICES = {
     1 => "PRESIDENTE DE LA REPÚBLICA",
     2 => "PRIMER VICEPRESIDENTE DE LA REPÚBLICA",
