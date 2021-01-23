@@ -10,8 +10,8 @@ module PoliticalOrganizationTotalCandidatesCounter
 
     total_candidates = candidates.count
     total_designated = candidates.where(designated: true).count
-    total_m = Person.where(candidate_id: candidates.select(:id), gender: "m").count
-    total_f = Person.where(candidate_id: candidates.select(:id), gender: "f").count
+    total_m = Person.where(id: candidates.select(:person_id), gender: "m").count
+    total_f = Person.where(id: candidates.select(:person_id), gender: "f").count
 
     political_organization_stat = PoliticalOrganizationStat.find_or_create_by(
       political_organization_id: political_organization_id,
