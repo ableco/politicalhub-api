@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: one
+  electoral_process: one
+  political_organization_id: 1
+  political_organization_name: MyString
+  office_id: 1
+  office: MyString
+  elected: false
+
+two:
+  person: two
+  electoral_process: two
+  political_organization_id: 1
+  political_organization_name: MyString
+  office_id: 1
+  office: MyString
+  elected: false

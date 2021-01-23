@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_014015) do
+ActiveRecord::Schema.define(version: 2021_01_23_142506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,20 @@ ActiveRecord::Schema.define(version: 2021_01_23_014015) do
     t.index ["political_organization_id"], name: "index_candidates_on_political_organization_id"
   end
 
+  create_table "electoral_history_entries", force: :cascade do |t|
+    t.bigint "person_id", null: false
+    t.bigint "electoral_process_id", null: false
+    t.integer "political_organization_id"
+    t.string "political_organization_name"
+    t.integer "office_id"
+    t.string "office"
+    t.boolean "elected"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["electoral_process_id"], name: "index_electoral_history_entries_on_electoral_process_id"
+    t.index ["person_id"], name: "index_electoral_history_entries_on_person_id"
+  end
+
   create_table "electoral_processes", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -270,6 +284,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_014015) do
   add_foreign_key "candidates", "electoral_processes"
   add_foreign_key "candidates", "people"
   add_foreign_key "candidates", "political_organizations"
+  add_foreign_key "electoral_history_entries", "electoral_processes"
+  add_foreign_key "electoral_history_entries", "people"
   add_foreign_key "individual_financial_contributions", "people"
   add_foreign_key "political_organization_stats", "electoral_processes"
   add_foreign_key "political_organization_stats", "political_organizations"

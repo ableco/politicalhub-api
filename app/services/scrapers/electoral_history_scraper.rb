@@ -1,4 +1,4 @@
-class Scrapers::CandidateHistoricElectionsScraper
+class Scrapers::ElectoralHistoryScraper
   class << self
     def call(identification_number)
       request = HTTP.headers({
@@ -17,7 +17,7 @@ class Scrapers::CandidateHistoricElectionsScraper
           "IdDNI": identification_number,
           "TxApePat": "",
           "TxApeMat": "",
-          "TxNombre":"",
+          "TxNombre": "",
           "token": "1uOrPCXZS4o=OC"
         }
       )
@@ -62,15 +62,34 @@ class Scrapers::CandidateHistoricElectionsScraper
         }
       )
 
+      person = Person.find_by(identification_number: identification_number)
+
       document = Nokogiri::HTML(previous_elections_request.body.to_s)
 
-      previous_elections = document.css("#gridPoliticoProcesosElectorales > tbody > tr").map do |row|
-        {
-          electoral_process: row.css("td")[0].text,
-          office: row.css("td")[1].text,
-          political_organization: row.css("td")[2].text,
-          elected: row.css("td")[4].text === "SI",
+      document.css("#gridPoliticoProcesosElectorales > tbody > tr").each do |row|
+        electoral_process_name = row.css("td")[0].text
+        office_name = row.css("td")[1].text
+        political_organization_name = row.css("td")[2].text
+
+        electoral_process = ElectoralProcess.find_or_create_by(slug: electoral_process_name.parameterize)
+        electoral_process.update(name: electoral_process_name)
+
+        political_organization = PoliticalOrganization.find_by(name: political_organization_name)
+
+        previous_election_entry = {
+          office: office_name,
+          office_id: Candidate::ELECTION_OFFICES.find { |_, v| v == office_name }&.first,
+          political_organization_name: political_organization_name,
+          political_organization_id: political_organization&.id,
+          elected: row.css("td")[4].text === "SI"
         }
+
+        electoral_history_entry = ElectoralHistoryEntry.find_or_create_by(
+          person_id: person.id,
+          electoral_process_id: electoral_process.id
+        )
+
+        electoral_history_entry.update(previous_election_entry)
       end
 
     end
