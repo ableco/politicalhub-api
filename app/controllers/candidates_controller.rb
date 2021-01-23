@@ -41,7 +41,7 @@ class CandidatesController < ApplicationController
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
-    render json: candidates, include: include_options
+    render json: candidates, fields: fields_options, include: include_options
   end
 
   def show
@@ -62,10 +62,36 @@ class CandidatesController < ApplicationController
       :candidate_property_entries
     ).find(params[:id])
 
-    render json: candidate, include: include_options
+    render json: candidate, fields: fields_options, include: include_options
   end
 
   def include_options
     params[:include].blank? ? [] : params[:include].split(",")
+  end
+
+  def fields_options
+    params[:fields].blank? ? [] : parse_fields
+  end
+
+  def parse_fields
+    fields = []
+    params[:fields].split(",").each do |field|
+      if field.match?(/\./)
+        resource, field_name = field.split(".")
+        resource_in_fields = fields.find { |f| f.is_a?(Hash) && f[resource] }
+
+        if resource_in_fields.nil?
+          resource_in_fields = {}
+          resource_in_fields[resource] = []
+          fields << resource_in_fields
+        end
+
+        resource_in_fields[resource] << field_name
+      else
+        fields << field
+      end
+    end
+
+    fields
   end
 end

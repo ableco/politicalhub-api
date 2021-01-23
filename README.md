@@ -508,6 +508,7 @@
 | `properties_value` | Filter candidates that match their total properties value with a certain value. | `250000` |
 | `properties_value_greater_than` | Filter candidates that have total properties value greater than certain value. | `250000` |
 | `include` | Comma-separated list of related resources. | `person,candidate_property_entries` |
+| `fields` | Comma-separated list of fields, for both the resource and related resources. | `person.gender,electoral_history_entry.office` |
 
 #### Include resources for candidates:
 
