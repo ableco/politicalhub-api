@@ -53,7 +53,8 @@ class Scrapers::CandidateScraper
             names: personal_information[:names],
             date_of_birth: personal_information[:date_of_birth],
             country_of_birth: personal_information[:country_of_birth],
-            profile_photo: personal_information[:profile_photo]
+            gender: personal_information[:gender],
+            profile_photo: person.profile_photo || personal_information[:profile_photo]
           )
 
           candidate = Candidate.find_or_create_by(
@@ -369,8 +370,8 @@ class Scrapers::CandidateScraper
           political_organization_name: elected_office_entry["strOrgPolCargoElec"],
           office_id: elected_office_entry["idCargoEleccion"],
           office: elected_office_entry["strCargoEleccion2"],
-          start_year: parse_year(elected_office_entry["strAnioCargoPartiDesde"]),
-          end_year: parse_year(elected_office_entry["strAnioCargoPartiHasta"]),
+          start_year: parse_year(elected_office_entry["strAnioCargoElecDesde"]),
+          end_year: parse_year(elected_office_entry["strAnioCargoElecHasta"]),
           comments: elected_office_entry["strComentario"],
           jne_id: elected_office_entry["idHVCargoEleccion"]
         }

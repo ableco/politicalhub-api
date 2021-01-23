@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_005008) do
+ActiveRecord::Schema.define(version: 2021_01_23_014015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,8 @@ ActiveRecord::Schema.define(version: 2021_01_23_005008) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_candidates", default: 0
     t.integer "total_designated", default: 0
+    t.integer "total_m", default: 0
+    t.integer "total_f", default: 0
     t.index ["electoral_process_id"], name: "index_political_organization_stats_on_electoral_process_id"
     t.index ["political_organization_id"], name: "index_political_organization_stats_on_political_organization_id"
   end
