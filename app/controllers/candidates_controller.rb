@@ -17,13 +17,13 @@ class CandidatesController < ApplicationController
       :candidate_university_education_entries,
       :candidate_graduate_education_entries,
       :candidate_work_experience_entries,
-      :candidate_political_party_office_entries,
-      :candidate_previous_elected_office_entries,
-      :candidate_political_organization_resignation_entries,
-      :candidate_criminal_conviction_entries,
-      :candidate_civil_judgement_entries,
-      :candidate_income_entries,
-      :candidate_property_entries
+      # :candidate_political_party_office_entries,
+      # :candidate_previous_elected_office_entries,
+      # :candidate_political_organization_resignation_entries,
+      # :candidate_criminal_conviction_entries,
+      # :candidate_civil_judgement_entries,
+      # :candidate_income_entries,
+      # :candidate_property_entries
     )
     candidates = candidates.where(electoral_process_id: electoral_process.id)
     candidates = candidates.where(political_organization_id: political_organization) if political_organization.present?

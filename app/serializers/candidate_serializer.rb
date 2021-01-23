@@ -9,13 +9,13 @@ class CandidateSerializer < ActiveModel::Serializer
   has_many :candidate_university_education_entries
   has_many :candidate_graduate_education_entries
   has_many :candidate_work_experience_entries
-  has_many :candidate_political_party_office_entries
-  has_many :candidate_previous_elected_office_entries
-  has_many :candidate_political_organization_resignation_entries
-  has_many :candidate_criminal_conviction_entries
-  has_many :candidate_civil_judgement_entries
-  has_many :candidate_income_entries
-  has_many :candidate_property_entries
+  # has_many :candidate_political_party_office_entries
+  # has_many :candidate_previous_elected_office_entries
+  # has_many :candidate_political_organization_resignation_entries
+  # has_many :candidate_criminal_conviction_entries
+  # has_many :candidate_civil_judgement_entries
+  # has_many :candidate_income_entries
+  # has_many :candidate_property_entries
 
   def total_individual_financial_contributions
     object.person.total_individual_financial_contributions
