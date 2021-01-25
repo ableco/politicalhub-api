@@ -70,7 +70,7 @@ class CandidatesController < ApplicationController
   end
 
   def fields_options
-    params[:fields].blank? ? [] : parse_fields
+    params[:fields].blank? ? default_fields : parse_fields
   end
 
   def parse_fields
@@ -93,5 +93,22 @@ class CandidatesController < ApplicationController
     end
 
     fields
+  end
+
+  def default_fields
+    [
+      :id,
+      :names,
+      :family_name,
+      :mothers_maiden_name,
+      :date_of_birth,
+      :profile_photo_url,
+      :residence_ubigeo,
+      :political_organization_id,
+      :postulation_ubigeo,
+      :office,
+      :secondary_office,
+      :total_individual_financial_contributions
+    ]
   end
 end
