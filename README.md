@@ -512,6 +512,27 @@
 
 #### Include resources for candidates:
 
+By default, `/candidates` return just the basic candidate's info:
+
+```json
+{
+  "id": 3,
+  "names": "ERICK GUZMAN",
+  "family_name": "CLAVO",
+  "mothers_maiden_name": "ZUTA",
+  "date_of_birth": "1987-12-30",
+  "profile_photo_url": "https://declara.jne.gob.pe/Assets/Fotos-HojaVida/134356.jpg",
+  "residence_ubigeo": "010702",
+  "political_organization_id": 4,
+  "postulation_ubigeo": "010000",
+  "office": "CONGRESISTA DE LA REPÚBLICA",
+  "secondary_office": null,
+  "total_individual_financial_contributions": "0.0"
+}
+```
+
+If you need more information about a candidate. Add any of the following items in the `include` search param.
+
 * `person`
 * `person.individual_financial_contributions`
 * `person.electoral_history_entries`
