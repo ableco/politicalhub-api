@@ -1,7 +1,7 @@
 class CandidateSerializer < ActiveModel::Serializer
   attributes :id, :names, :family_name, :mothers_maiden_name, :date_of_birth, :profile_photo_url
   attributes :residence_ubigeo, :political_organization_id, :postulation_ubigeo, :office, :secondary_office
-  attributes :total_individual_financial_contributions
+  attributes :designated, :number, :total_individual_financial_contributions
 
   belongs_to :person
   belongs_to :electoral_process

@@ -108,6 +108,8 @@ class CandidatesController < ApplicationController
       :postulation_ubigeo,
       :office,
       :secondary_office,
+      :designated,
+      :number,
       :total_individual_financial_contributions
     ]
   end

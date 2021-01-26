@@ -527,6 +527,8 @@ By default, `/candidates` return just the basic candidate's info:
   "postulation_ubigeo": "010000",
   "office": "CONGRESISTA DE LA REPÚBLICA",
   "secondary_office": null,
+  "designated": false,
+  "number": 1,
   "total_individual_financial_contributions": "0.0"
 }
 ```
