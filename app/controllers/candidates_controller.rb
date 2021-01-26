@@ -41,7 +41,9 @@ class CandidatesController < ApplicationController
     candidates = candidates.where("total_properties_value = ?", properties_value) if properties_value.present?
     candidates = candidates.where("total_properties_value > ?", properties_value_greater_than) if properties_value_greater_than.present?
 
-    render json: candidates, fields: fields_options, include: include_options
+    candidates = candidates.page(page).per(per_page)
+
+    render json: candidates, meta: pagination_dict(candidates), fields: fields_options, include: include_options
   end
 
   def show
@@ -112,5 +114,23 @@ class CandidatesController < ApplicationController
       :number,
       :total_individual_financial_contributions
     ]
+  end
+
+  def page
+    params[:page].blank? ? 1 : params[:page].to_i
+  end
+
+  def per_page
+    params[:per_page].blank? ? 10 : params[:per_page].to_i
+  end
+
+  def pagination_dict(collection)
+    {
+      current_page: collection.current_page,
+      next_page: collection.next_page,
+      prev_page: collection.prev_page,
+      total_pages: collection.total_pages,
+      total_count: collection.total_count
+    }
   end
 end
