@@ -57,3 +57,5 @@ gem "watir", "~> 6.17"
 gem "webdrivers", "~> 4.5"
 
 gem "kaminari", "~> 1.2"
+
+gem "rack-cors", "~> 1.1"
