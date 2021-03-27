@@ -6,7 +6,7 @@ module PoliticalOrganizationTotalCandidatesCounter
   end
 
   def update_political_organization_totals
-    candidates = Candidate.where(electoral_process_id: electoral_process_id, political_organization_id: political_organization_id)
+    candidates = Candidate.where(electoral_process_id: electoral_process_id, political_organization_id: political_organization_id, state: :inscrito)
 
     total_candidates = candidates.count
     total_designated = candidates.where(designated: true).count
