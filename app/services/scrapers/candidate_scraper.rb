@@ -1,6 +1,6 @@
 class Scrapers::CandidateScraper
   class << self
-    def call(electoral_process_id: 110, election_type_id: 2, ubigeo: "")
+    def call(electoral_process_id: 110, election_type_id: 2, ubigeo: "", update_fields: [])
       electoral_process = ElectoralProcess.find_by(jne_id: electoral_process_id)
 
       registration_requests = registration_requests_by_electoral_process(
@@ -21,6 +21,21 @@ class Scrapers::CandidateScraper
         )
 
         candidates.each do |candidate_from_registration_request|
+          if candidate_from_registration_request[:state] != "inscrito"
+            if person = Person.find_by(identification_number: candidate_from_registration_request[:identification_number])
+              candidate = Candidate.find_by(
+                person_id: person.id,
+                electoral_process_id: electoral_process.id,
+                political_organization_id: political_organization.id,
+                office_id: candidate_from_registration_request[:office_id]
+              )
+
+              candidate.update(state: candidate_from_registration_request[:state]) if candidate
+            end
+
+            next
+          end
+
           resume = candidate_resume(
             electoral_process_id: electoral_process_id,
             resume_id: candidate_from_registration_request[:resume_id],
@@ -28,6 +43,7 @@ class Scrapers::CandidateScraper
           )
 
           next if resume.nil?
+          next if update_fields.empty?
 
           personal_information = resume[:personal_information]
           primary_education = resume[:primary_education]
@@ -47,6 +63,7 @@ class Scrapers::CandidateScraper
           vehicles = resume[:vehicles]
 
           person = Person.find_or_create_by(identification_number: personal_information[:identification_number])
+
           person.update(
             family_name: personal_information[:family_name],
             mothers_maiden_name: personal_information[:mothers_maiden_name],
@@ -219,7 +236,7 @@ class Scrapers::CandidateScraper
           file_id: registration_request["idExpediente"],
           political_organization: registration_request["strOrganizacionPolitica"],
           political_organization_id: registration_request["idOrganizacionPolitica"],
-          state: registration_request["strEstadoLista"],
+          state: registration_request["strEstadoLista"].downcase,
           electoral_district: registration_request["strDistritoElec"]
         }
       end
@@ -237,7 +254,7 @@ class Scrapers::CandidateScraper
           office_id: candidate["idCargoEleccion"],
           number: candidate["intPosicion"],
           designated: candidate["strFGDesignado"] == "1",
-          state: candidate["strEstadoExp"]
+          state: candidate["strEstadoExp"].downcase
         }
       end
     end
