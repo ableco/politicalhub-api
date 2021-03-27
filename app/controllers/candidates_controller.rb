@@ -25,7 +25,7 @@ class CandidatesController < ApplicationController
       :candidate_income_entries,
       :candidate_property_entries
     )
-    candidates = candidates.where(electoral_process_id: electoral_process.id)
+    candidates = candidates.where(electoral_process_id: electoral_process.id, state: :inscrito)
     candidates = candidates.where(political_organization_id: political_organization) if political_organization.present?
     candidates = candidates.where(postulation_ubigeo: ubigeo) if ubigeo.present?
     candidates = candidates.where(office_id: office).or(candidates.where(secondary_office_id: office)) if office.present?
