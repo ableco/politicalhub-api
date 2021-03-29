@@ -3,7 +3,7 @@ class CandidatesController < ApplicationController
     electoral_process = ElectoralProcess.find_by(jne_id: params[:electoral_process] || ElectoralProcess::LAST_ELECTION_ID)
     political_organization = params[:political_organization]
     ubigeo = params[:ubigeo]
-    office = params[:office]
+    office = params[:office].present? ? params[:office].split(",") : nil
     with_sentences = params[:with_sentences].to_s == "true"
     has_individual_financial_contributions = params[:has_individual_financial_contributions].to_s == "true"
     properties_value = params[:properties_value]
