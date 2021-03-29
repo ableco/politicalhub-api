@@ -1,4 +1,6 @@
 class CandidatesController < ApplicationController
+  caches_action :index, :show
+
   def index
     electoral_process = ElectoralProcess.find_by(jne_id: params[:electoral_process] || ElectoralProcess::LAST_ELECTION_ID)
     political_organization = params[:political_organization]
